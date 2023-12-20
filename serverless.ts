@@ -12,9 +12,16 @@ const serverlessConfiguration: AWS = {
     region: 'ap-northeast-2',
     runtime: 'nodejs20.x',
     timeout: 29,
+    memorySize: 512,
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
+    },
+    httpApi: {
+      metrics: true, // API Gateway Metrics
+    },
+    logs: {
+      httpApi: true,
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
